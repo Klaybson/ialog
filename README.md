@@ -1,55 +1,31 @@
-## **Estrutura do Projeto**
+# 📊 K8s Events Analyzer com Flask + Ollama
 
-```
-k8s-deepseek-monitor/
-│
-├── app.py                  # Backend Flask
-├── requirements.txt        # Dependências do Python
-├── static/                 # Arquivos estáticos (CSS, JS)
-│   └── styles.css
-
-#### 6. **README.md**
-
-```markdown
-# Kubernetes Event Monitor with DeepSeek
-
-Este projeto coleta eventos de um cluster Kubernetes e os envia para o DeepSeek para análise.
-
-## Como Executar
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seu-usuario/k8s-deepseek-monitor.git
-   cd k8s-deepseek-monitor
-   ```
-
-2. Configure as variáveis no arquivo `app.py`:
-   - `K8S_MASTER_IP`: IP do master do Kubernetes.
-   - `KUBECONFIG_PATH`: Caminho do arquivo kubeconfig.
-
-3. Instale as dependências e inicie o servidor:
-   ```bash
-   ./run.sh
-   ```
-
-4. Acesse a interface web em:
-   ```
-   http://localhost:5000
-   ```
-
-## Autenticação
-- Usuário: `admin`
-- Senha: `senha123`
-```
+Este projeto é uma aplicação Flask que coleta eventos do Kubernetes usando `kubectl` e envia os dados para um modelo de IA local via API do Ollama para análise e resumo.
 
 ---
 
-### **Pronto!**
+## 🚀 Funcionalidades
 
-Agora você tem um projeto completo com backend, frontend, autenticação e documentação. Para executar:
+- Autenticação básica HTTP para acesso seguro
+- Consulta de eventos em todos os namespaces do Kubernetes
+- Integração com o modelo `deepseek-r1` via Ollama para gerar análise automática dos eventos
+- Interface básica via HTML e API REST (`/api/k8s-events`)
 
-1. Configure as variáveis no `app.py`.
-2. Rode o script `run.sh`.
-3. Acesse a interface web e clique em "Buscar Eventos" para ver os eventos e a análise.
+---
 
-Se precisar de mais ajustes ou tiver dúvidas, é só perguntar! 🚀
+## ⚙️ Requisitos
+
+- Python 3.8+
+- Kubernetes configurado com acesso por `kubectl`
+- Ollama instalado e rodando localmente com o modelo `deepseek-r1`
+- Chave `KUBECONFIG` configurada corretamente (ou padrão: `~/.kube/config`)
+
+---
+
+## 📦 Instalação
+
+1. Clone o repositório:
+
+```bash
+git clone git@gitlab.klaybson.com.br:flask/ialog.git
+cd ialog
